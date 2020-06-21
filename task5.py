@@ -16,8 +16,12 @@ def random_walk(n):
         #step1 = np.random.choice([0,0.5,1])
         #step2 = radians(np.random.choice(angle)
         step2 = radians(random.randrange(360))
-        x = x + step1*cos(step2)
-        y = y + step1*sin(step2)
+        if step1*cos(step2) <= 100:
+            x = x + step1*cos(step2)
+            y = y + step1*sin(step2)
+        else:
+            x = x
+            y = y
         lst1.append(x)
         lst2.append(y)
 random_walk(10000)
