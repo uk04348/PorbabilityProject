@@ -1,5 +1,5 @@
 import random
-from math import cos, sin, radians
+from math import cos, sin, radians, sqrt
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -16,7 +16,7 @@ def random_walk(n):
         step1 = np.random.choice([0,0.5,1])
         #step2 = radians(np.random.choice(angle)
         step2 = radians(random.randrange(360))
-        if step1*cos(step2) <= 100:
+        if sqrt(((x*step1*cos(step2))**2) + ((y*step1*sin(step2))**2)) <= 100:
             x = x + step1*cos(step2)
             y = y + step1*sin(step2)
         else:
